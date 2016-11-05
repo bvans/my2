@@ -1,0 +1,83 @@
+/* reset */
+article,aside,audio,bdi,canvas,command,datalist,details,figcaption,figure,footer,header,hgroup,keygen,mark,meter,nav,output,progress,rp,rt,ruby,section,source,summary,time,track,video,title {display:block}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,figure {padding:0;margin:0;}
+fieldset,img{border:0;}
+a,img{vertical-align: top;}
+:focus {outline:0;}
+address,caption,cite,code,dfn,em,th,var,optgroup {font-style:normal;font-weight:normal;}
+h1,h2,h3,h4,h5,h6 {font-size:100%;font-weight: normal;}
+abbr,acronym {border:0;font-variant:normal;}
+input,button,textarea,select,optgroup,option {font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}
+code,kbd,samp,tt {font-size:100%;}
+input,button,textarea,select {*font-size:100%;}
+ol,ul,li {list-style:none;}
+table {border-collapse:collapse;border-spacing:0;}
+caption,th {text-align:left;}
+sup,sub {font-size:100%;vertical-align:baseline;}
+blockquote,q {quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after {content:'';content:none;}
+/* end reset */
+
+/* atom class */
+.fix:after{clear: both;content:'.';display: block;visibility:hidden;height:0;font-size: 0;overflow: hidden;}
+.fix{*zoom:1;}
+.hide {display:none;}
+.fwr{font-family:"microsoft yahei",arial;}
+.fl{float: left;_display:inline;}
+.fr{float: right;_display:inline;}
+.l{float: left;_margin-right:-3px;}
+.cell{display: table-cell;width: 2000px;*display: inline-block;*width: auto;}
+.tc{text-align: center;}
+.hFont{display: block;text-indent: -100%;overflow: hidden;white-space: nowrap;}
+/* end atom */
+
+/* comm */
+html{font-size:10px;-webkit-text-size-adjust:none;}
+body{font:1rem/1.5 "microsoft yahei","Lucida Grande","Lucida Sans Unicode",Arial;color:#909095;background-color: #fff;}
+a{color:#909095;text-decoration: none;background: none;}
+a:hover{-webkit-transition:color .3s ease-out;-moz-transition:color .3s ease-out;transition:color .3s ease-out;text-decoration: underline;}
+
+/* index */
+.main-title{line-height: 86px;text-align: center;font-size: 2rem;color: #fff;background-color: #f56f4a;border-bottom: 1px solid #c6c5ca;}
+.game-code-item{font-size: 0;border-bottom: 1px solid #c5c7cd;}
+.game-code-item>div{display: inline-block;vertical-align: middle;line-height: 1.78rem;}
+.game-logo-wrap{width: 26%;text-align: center;padding: 16px 0;}
+.game-logo-wrap img{border-radius: 1.39rem;width: 7.1rem;}
+.game-info-wrap{width: 45%;}
+.get-code-wrap{width: 29%;text-align: center;}
+.game-title{font-size: 1.5rem;color: #000;line-height: 2.22rem;}
+.game-info{font-size: 1.167rem;color: #909095;}
+.game-link{font-size: 1rem;}
+.get-code-wrap .normal-btn{width: 7.9rem;}
+.normal-btn{border-radius: 5px;font-size:1.22rem;border:2px solid #f56f4a;background-color: #feede9;display: inline-block;height: 3.1rem;line-height: 3.1rem;text-align: center;color: #f56f4a;}
+.success-get{background-color: #f7f7f7;text-align: center;}
+.success-get .normal-btn{padding: 0 45px;margin: 25px 0;}
+.code-wrap{width: 96%;margin:0 auto;overflow: hidden;color: #f56f4a;background: #fdfae6;border-left:1px solid #dddddb;border-right:1px solid #dddddb; }
+.sucess-tips{margin: 0 11%;padding:1.39rem 0;font-size: 1.4rem;border-bottom: 1px dotted #f56f4a;}
+.i-tick{background:url(../img/tick.png) left top no-repeat;background-size:100% 100%;display: inline-block;width: 3.5rem;height: 3.5rem;vertical-align: middle;margin-right: 14px;}
+.code{font:bold 1.944rem/6.11rem arial;background: url(../img/bg.png) left bottom repeat-x;margin-bottom: -4px;}
+.use-method{padding: 10px 20px;border-top:1px solid #c5c7cd;border-bottom: 1px solid #c5c7cd;}
+.sub-title{font-size: 1.5rem;color: #202e39;line-height: 50px;}
+.method-list{font-size: 1.167rem;}
+.point{display: inline-block;width: 8px;height: 8px;background-color: #f56f4a;border-radius: 50%;vertical-align: middle;margin-right: 5px;}
+.package{padding: 10px 20px;}
+.package-list{line-height: 1.78;}
+.package-list span{vertical-align: middle;display: inline-block;}
+.lv{display: inline-block;width: 2.78rem;line-height: 1.33rem;height: 1.33rem;border-radius: 0.22rem;color: #fff;text-align: center;white-space: nowrap;margin-right: 10px;vertical-align: middle;}
+.lv1{background-color: #faaf9b;}
+.lv2{background-color: #f5886b;}
+.lv3{background-color: #f5724a;}
+.lv4{background-color: #e65f29;}
+.lv5{background-color: #d5450d;}
+.lv6{background-color: #bd3a00;}
+.lv7{background-color: #bc2f09;}
+.goback{text-align: center;}
+.goback .normal-btn{padding: 0 45px;margin: 25px 0;}
+
+@media only screen and (min-width: 480px) {
+	html{font-size: 15px;}
+}
+
+@media only screen and (min-width: 640px) {
+	html{font-size: 18px;}
+}

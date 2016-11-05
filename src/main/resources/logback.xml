@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charser="UTF-8">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss} [%t] %5p %c{50}:%L] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--sedis-->
+    <appender name="dbaccessAppender">
+        <File>${catalina.base}/logs/db.log</File>
+        <Append>true</Append>
+        <encoder charset="UTF-8">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss} %p %c{50}:%L] 【%m】%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.qunar.redis.storage" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="dbaccessAppender" />
+    </logger>
+
+    <appender name="COMMON"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${catalina.base}/logs/common.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/common.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>31</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss} [%t] %5p %c{50}:%L] [sessionid=%X{sessionid}] [userCookie=%X{userCookie}]
+                %m%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="db"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${catalina.base}/logs/db.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/db.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>31</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss} [%t] %5p %c{50}:%L] %m%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <file>${catalina.base}/logs/error.log</file>
+        <prudent>false</prudent>
+        <Append>true</Append>
+        <encoder charset="UTF-8">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss} [%t] %5p %c{50}:%L] [sessionid=%X{sessionid}] [userCookie=%X{userCookie}]
+                %m%n
+            </pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/error.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>31</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="WARN"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${catalina.base}/logs/warn.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${catalina.base}/logs/warn.%d{yyyy-MM-dd}.log
+            </fileNamePattern>
+            <maxHistory>31</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss} [%t] %5p %c{50}:%L] %m%n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <logger name="com.qunar.db.util.DbLogger" level="info"
+            additivity="false">
+        <appender-ref ref="db"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+
+    <logger name="org.springframework" level="info">
+        <appender-ref ref="COMMON"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="COMMON"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="ERROR"/>
+    </root>
+</configuration>

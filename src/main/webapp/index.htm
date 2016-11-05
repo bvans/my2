@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html manifest="csa.appcache"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>在线咨询</title>
+<link rel="stylesheet" href="./css/style.css">
+<style>
+.wrapper {
+	position: absolute;
+	top: 0px;
+	bottom: 53px;
+	overflow: hidden;
+	margin-top: 12px;
+	width: 100%;
+}
+
+.blank {
+	height: 53px;
+}
+
+.container {
+	position: absolute;
+	width: 100%;
+}
+
+.service .xyq_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_xyq.png.pagespeed.ic.RW6M-Y8ZZj.png) no-repeat;
+	background-size: 32px 32px;
+}
+
+.service .xy2_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_xy2.png.pagespeed.ic._IH2-a9fW3.png) no-repeat;
+	background-size: 32px 32px;
+}
+
+.service .xy3_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_xy3.png.pagespeed.ic.gurPtpDwNP.png) no-repeat;
+	background-size: 32px 32px;
+}
+
+.service .dt2_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_dt2.png.pagespeed.ic.FPB1teMb8n.jpg) no-repeat;
+	background-size: 32px 32px;
+}
+
+.service .lj_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_lj.png.pagespeed.ic.rF1mnTWuj6.png) no-repeat;
+	background-size: 32px 32px;
+}
+
+.service .qn_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_qn.png.pagespeed.ic.Kj9FL5O1vh.png) no-repeat;
+	background-size: 32px 32px;
+}
+
+.service .wh_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_wh.png.pagespeed.ic.Wtoo2mM8sy.jpg) no-repeat;
+	background-size: 32px 32px;
+}
+
+.service .zh_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_zh.png.pagespeed.ic.z7dmc3-5qk.jpg) no-repeat;
+	background-size: 32px 32px;
+}
+
+.service .tx2_userThum {
+	float: left;
+	background: url(http://mkey-phone.gm.163.com/images/xsprite_tx2.png.pagespeed.ic.0yckZ_Qw_T.jpg) no-repeat;
+	background-size: 32px 32px;
+}
+
+.sprite_color_text {
+	color: #ff4e00;
+}
+</style>
+<script src="./js/main.js"></script>
+<style id="RKS" type="text/css">
+#selCont {
+	position: absolute;
+	z-index: 1000010;
+	display: none;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #FFFFFF;
+	text-align: left;
+	font-size: 12px;
+	font-family: Arial,sans-serif;
+}
+
+#selCont h3 {
+	margin: 0;
+	padding: 6px 6px 3px;
+	width: auto;
+	height: auto;
+	color: #999;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 1em;
+}
+
+#selCont div {
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 1000012;
+}
+
+#selCont ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: left;
+	font-size: 0;
+}
+
+#selCont ul li {
+	padding: 2px 6px;
+	color: #666;
+	font-size: 12px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+#selCont ul li.on {
+	background-color: #2d8bff;
+	color: #fff;
+	font-weight: bold;
+}
+
+.ursIni {
+	color: #999;
+}
+</style>
+<script>
+//<![CDATA[
+var product_typeid = {
+	'xyq': 2142,
+	'xy2': 2143,
+	'tx2': 2144,
+	'qn': 2145,
+	'wh': 2146,
+	'lj': 2148,
+	'zh': 2149,
+	'xy3': 2150,
+	'pk': 2151,
+	'dt2': 2152,
+	'zd': 2198
+};
+
+var product_ques_server_id_conf = {
+    "xy3": {"server_select": false},
+    "xyq": {"server_select": false},
+    "wh": {"server_select": false}
+};
+
+//]]>
+</script>
+<script src = "./js/product.js">
+</script>
+</head>
+
+<body class="onlineService">
+<div class="wraper">
+	<header></header>
+	<!--<div id="evaluation" class="confirmLayer" style="display: none; z-index: 2; position: absolute;">
+		<input name="question" value="" type="hidden">
+		<input name="raw_answer" value="" type="hidden">
+		<p>此回复是否已解决问题？<input name="solved_eval_btn" value="是" class="btn" type="button">&nbsp;&nbsp;<input name="unsolved_eval_btn" value="否" class="btn cancel-btn" type="button"></p>
+	</div>
+
+	--><div style="overflow: hidden;" class="wrapper" id="wrapper">
+		<div style="transition-property: transform; transform-origin: 0px 0px 0px; transition-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1); transform: translate(0px, -72px) scale(1) translateZ(0px); transition-duration: 0ms;" class="container">
+			<div class="dialogueList" id="dialogue">
+				<!-- 以下对话列表开始，注意service和customer的class值，标注是谁说的 -->
+
+				<div class="dialogue service">
+					<div id="sprite_icon" class="userThum xyq_userThum"></div>
+					<div class="diaPopup">
+						<i class="cornner"></i>
+						<div class="diaCont">
+						<p>您好!欢迎关注"梦幻西游2新手指导"微信公众平台.</p>
+							<!--<p>您好！可以发问题给我，或选择：</p>
+							-->
+							<!-- <ul class="preService">
+								<li>
+									<a href="#" onclick="return reask('忘记密码');">
+										<h5>忘记密码</h5>
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="return reask('解除密保绑定');">
+										<h5>解除密保</h5>
+									</a>
+								</li>
+								<li>
+									<a href="#" onclick="return reask('热点问题');">
+										<h5>更多问题</h5>
+									</a>
+								</li>
+							</ul> -->
+						</div>
+					</div>
+				</div>
+
+				<!-- 以上对话列表开始，注意service和customer的class值，标注是谁说的 -->
+			</div>
+		</div>
+	<div style="position: absolute; z-index: 100; width: 7px; bottom: 2px; top: 2px; right: 1px; pointer-events: none; transition-property: opacity; overflow: hidden; opacity: 1;"><div style="position: absolute; z-index: 100; background: none repeat scroll 0% 0% padding-box rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.9); box-sizing: border-box; width: 100%; border-radius: 3px; pointer-events: none; transition-property: transform; transform: translate(0px, 53.2174px) translateZ(0px); transition-timing-function: cubic-bezier(0.33, 0.66, 0.66, 1); height: 255px; transition-duration: 0ms;"></div></div></div>
+
+	<div class="askForm">
+		<p><span><input id="question" placeholder="描述问题，请勿使用繁体字" autofocus="" type="text"></span><input id="ask" value="发送" class="btn" style="width:60px" type="button"></p>		
+	</div>
+
+	<footer style="display:none">
+	<div class="navHandler" id="navHandler">
+		<!-- 以下容器上可根据当前选中的导航，设置class为s1/s2/s3/s4，用addClass -->
+		<div class="circle s1" id="circle"></div>
+	</div>
+	<!-- <nav id="nav" style="">
+		<ul>
+			<li class="on" id="nav_sprite" href="/sprite.html?xyq"><h2>在线咨询</h2></li>
+			<li id="nav_myq" href="/my_questions.html"><h2>我的提问</h2></li>
+			<li id="nav_faq" href="/faq.html"><h2>常见问题</h2></li>
+			<li id="nav_news" href="/news.html"><h2>新闻动态</h2></li>
+		</ul>
+	</nav> -->
+</footer>	
+
+<script>
+var nav;
+
+$(function(){
+	$("#nav li").click(function(){
+		show_preloading();
+		$('#nav li').removeClass('on');
+		$(this).addClass('on');
+		nav.hide();
+		location.href = $(this).attr('href');
+	});
+
+	window.onpageshow = function(){
+		hide_preloading();
+		clear_cookie();
+		set_login_status(false, false);
+	}
+
+	$('.preLoading').click(function(){
+		show_preloading();
+	});
+});
+
+
+</script>
+
+<!-- START NetEase Devilfish -->
+<script src="./js/ntes.js" type="text/javascript"></script>
+<script type="text/javascript">
+	_ntes_nacc = "mobilegm";
+	neteaseTracker();
+</script>
+<!-- END NetEase Devilfish -->
+
+</div>
+
+<script>//<![CDATA[
+(function(){var d=encodeURIComponent,f=window,g=document,h="documentElement",k="length",l="prototype",m="body",p="&",s="&ci=",t=",",u="?",v="Content-Type",w="Microsoft.XMLHTTP",x="Msxml2.XMLHTTP",y="POST",z="application/x-www-form-urlencoded",A="img",B="input",C="load",D="oh=",E="on",F="pagespeed_url_hash",G="url=";f.pagespeed=f.pagespeed||{};var H=f.pagespeed,I=function(a,b,c){this.c=a;this.e=b;this.d=c;this.b=this.f();this.a={}};
+I[l].f=function(){return{height:f.innerHeight||g[h].clientHeight||g[m].clientHeight,width:f.innerWidth||g[h].clientWidth||g[m].clientWidth}};I[l].g=function(a){a=a.getBoundingClientRect();return{top:a.top+(void 0!==f.pageYOffset?f.pageYOffset:(g[h]||g[m].parentNode||g[m]).scrollTop),left:a.left+(void 0!==f.pageXOffset?f.pageXOffset:(g[h]||g[m].parentNode||g[m]).scrollLeft)}};
+I[l].h=function(a){if(0>=a.offsetWidth&&0>=a.offsetHeight)return!1;a=this.g(a);var b=a.top.toString()+t+a.left.toString();if(this.a.hasOwnProperty(b))return!1;this.a[b]=!0;return a.top<=this.b.height&&a.left<=this.b.width};I[l].i=function(a){var b;if(f.XMLHttpRequest)b=new XMLHttpRequest;else if(f.ActiveXObject)try{b=new ActiveXObject(x)}catch(c){try{b=new ActiveXObject(w)}catch(e){}}if(!b)return!1;b.open(y,this.c+(-1==this.c.indexOf(u)?u:p)+G+d(this.e));b.setRequestHeader(v,z);b.send(a);return!0};
+I[l].k=function(){for(var a=[A,B],b=[],c={},e=0;e<a[k];++e)for(var q=g.getElementsByTagName(a[e]),n=0;n<q[k];++n){var r=q[n].getAttribute(F);r&&(q[n].getBoundingClientRect&&this.h(q[n]))&&!(r in c)&&(b.push(r),c[r]=!0)}if(0!=b[k]){a=D+this.d;a+=s+d(b[0]);for(e=1;e<b[k];++e){c=t+d(b[e]);if(131072<a[k]+c[k])break;a+=c}H.criticalImagesBeaconData=a;this.i(a)}};
+H.j=function(a,b,c){if(a.addEventListener)a.addEventListener(b,c,!1);else if(a.attachEvent)a.attachEvent(E+b,c);else{var e=a[E+b];a[E+b]=function(){c.call(this);e&&e.call(this)}}};H.l=function(a,b,c){var e=new I(a,b,c);H.j(f,C,function(){f.setTimeout(function(){e.k()},0)})};H.criticalImagesBeaconInit=H.l;})();
+
+pagespeed.criticalImagesBeaconInit('/mod_pagespeed_beacon', 'http://mkey-phone.gm.163.com/sprite.html?xyq', 'aS2Zi9rU2v');
+//]]></script>
+
+<div id="selCont"><div><h3>--请选择帐号--</h3><ul id="ulSel"></ul></div></div></body></html>
