@@ -10,19 +10,6 @@
         </encoder>
     </appender>
 
-    <!--sedis-->
-    <appender name="dbaccessAppender">
-        <File>${catalina.base}/logs/db.log</File>
-        <Append>true</Append>
-        <encoder charset="UTF-8">
-            <pattern>[%d{yyyy-MM-dd HH:mm:ss} %p %c{50}:%L] 【%m】%n</pattern>
-        </encoder>
-    </appender>
-
-    <logger name="com.qunar.redis.storage" additivity="false">
-        <level value="INFO" />
-        <appender-ref ref="dbaccessAppender" />
-    </logger>
 
     <appender name="COMMON"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -89,7 +76,7 @@
         </filter>
     </appender>
 
-    <logger name="com.qunar.db.util.DbLogger" level="info"
+    <logger name="com.qunar.db.me.henuer.my2.util.DbLogger" level="info"
             additivity="false">
         <appender-ref ref="db"/>
         <appender-ref ref="WARN"/>
@@ -98,6 +85,11 @@
 
     <logger name="org.springframework" level="info">
         <appender-ref ref="COMMON"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <logger name="me.henuer.my2" level="debug">
+        <appender-ref ref="STDOUT"/>
     </logger>
 
     <root level="INFO">

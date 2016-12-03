@@ -43,7 +43,7 @@
         <appender-ref ref="stdout"/>
     </logger>
 
-    <logger name="com.qunar.insurance.bidding.platform" level="DEBUG" additivity="false">
+    <logger name="me.henuer.my2" level="DEBUG" additivity="false">
         <appender-ref ref="stdout"/>
     </logger>
 

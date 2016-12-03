@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="me.henuer.my2.dao.SerialNumDao">
+
+    <sql id="insertFields">
+        sn_type,
+        sn,
+        promo_page,
+        sn_status,
+        apply_date,
+        expire_date
+    </sql>
+
+    <select id="getValidSn" resultType="String">
+        SELECT sn FROM serial_num
+        WHERE sn_type=#{snType} AND sn_status=#{snStatus}
+        AND expire_date > now()
+        LIMIT 1;
+    </select>
+
+    <delete id="deleteBySn">
+        DELETE FROM serial_num
+        WHERE sn=#{sn};
+    </delete>
+
+
+
+    <insert id="insertKeys" parameterType="list">
+        INSERT INTO serial_num(
+        <include refid="insertFields"/>
+        ) VALUES
+        <foreach collection="sn" item="item" separator=",">
+            (
+            #{item.snType},
+            #{item.sn},
+            #{item.promoPage},
+            #{item.snStatus},
+            #{item.applyDate},
+            #{item.expireDate}
+            )
+        </foreach>
+    </insert>
+</mapper>

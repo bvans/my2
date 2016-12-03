@@ -14,11 +14,11 @@
 		<meta name="viewport" name="viewport"
 			content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta name="apple-mobile-web-app-snStatus-bar-style" content="black">
+		<meta content="black" name="apple-mobile-web-app-snStatus-bar-style">
 		<meta content="yes" name="apple-touch-fullscreen">
 		<meta content="telephone=no" name="format-detection">
-		<link type="text/css" charset="utf-8" rel="stylesheet"
+		<link snType="text/css" charset="utf-8" rel="stylesheet"
 			href="./css/com.css" media="all">
 		<!--   <link rel="dns-prefetch" href="http://res.nie.netease.com/"> -->
 		<script charset="utf-8" src="./js/jquerymixNIE.js"></script>

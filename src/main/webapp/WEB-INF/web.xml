@@ -1,84 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5"
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="http://java.sun.com/xml/ns/javaee"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0"
+         metadata-complete="true">
+
+    <display-name>叫你玩儿梦幻西游2</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:/spring-context.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--<servlet-mapping>-->
+    <!--<servlet-name>default</servlet-name>-->
+    <!--<url-pattern>/resources/*</url-pattern>-->
+    <!--</servlet-mapping>-->
     <servlet>
-        <servlet-name>transfer</servlet-name>
-        <servlet-class>servlets.Transfer</servlet-class>
+        <servlet-name>dispatch</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                classpath*:/mvc/mvc-context.xml
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
-
-    <servlet>
-        <servlet-name>Guide_csa_py</servlet-name>
-        <servlet-class>servlets.Guide_csa_py</servlet-class>
-    </servlet>
-
-    <servlet>
-        <description>This is the description of my J2EE component</description>
-        <display-name>This is the display name of my J2EE component</display-name>
-        <servlet-name>Csa_sprite_py</servlet-name>
-        <servlet-class>servlets.Csa_sprite_py</servlet-class>
-    </servlet>
-
-    <servlet>
-        <description>This is the description of my J2EE component</description>
-        <display-name>This is the display name of my J2EE component</display-name>
-        <servlet-name>Ask</servlet-name>
-        <servlet-class>servlets.Ask</servlet-class>
-    </servlet>
-    <servlet>
-        <description>This is the description of my J2EE component</description>
-        <display-name>This is the display name of my J2EE component</display-name>
-        <servlet-name>AuthorRization</servlet-name>
-        <servlet-class>servlets.AuthorRization</servlet-class>
-    </servlet>
-    <servlet>
-        <description>This is the description of my J2EE component</description>
-        <display-name>This is the display name of my J2EE component</display-name>
-        <servlet-name>CoreServlet</servlet-name>
-        <servlet-class>servlets.CoreServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <description>This is the description of my J2EE component</description>
-        <display-name>This is the display name of my J2EE component</display-name>
-        <servlet-name>Test</servlet-name>
-        <servlet-class>servlets.Test</servlet-class>
-    </servlet>
-
     <servlet-mapping>
-        <servlet-name>transfer</servlet-name>
-        <url-pattern>/servlet/Transfer</url-pattern>
+        <servlet-name>dispatch</servlet-name>
+        <url-pattern>/*</url-pattern>
     </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Guide_csa_py</servlet-name>
-        <url-pattern>/servlet/Guide_csa_py</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Csa_sprite_py</servlet-name>
-        <url-pattern>/servlet/csa_sprite_py</url-pattern>
-    </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>Ask</servlet-name>
-        <url-pattern>/servlet/ask</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AuthorRization</servlet-name>
-        <url-pattern>/servlet/AuthorRization</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CoreServlet</servlet-name>
-        <url-pattern>/servlet/core</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Test</servlet-name>
-        <url-pattern>/servlet/Test</url-pattern>
-    </servlet-mapping>
-
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-        <welcome-file>/index.htm</welcome-file>
-    </welcome-file-list>
 
 </web-app>

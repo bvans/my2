@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--配置要注入的类所在的包-->
+    <context:component-scan base-package="me.henuer.my2.web"/>
+
+    <!--配置自定义的拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <ref bean="simpleInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+    <!--jsp-->
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="order" value="1" />
+    </bean>
+
+    <!--&lt;!&ndash;velocity&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">-->
+        <!--<property name="prefix" value=""/>-->
+        <!--<property name="suffix" value=".vm"/>-->
+        <!--<property name="order" value="1" />-->
+        <!--<property name="cache" value="true"/>-->
+        <!--<property name="contentType" value="text/html;charset=utf-8"/>-->
+        <!--<property name="layoutUrl" value="layout/layout.vm"/>-->
+        <!--&lt;!&ndash;<property name="exposeSpringMacroHelpers" value="true"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="exposeRequestAttributes" value="true"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="requestContextAttribute" value="rc"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="toolboxConfigLocation" value="/WEB-INF/conf/toolbox.xml"/>&ndash;&gt;-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;velocity环境配置&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">-->
+        <!--<property name="resourceLoaderPath" value="/WEB-INF/vm/"/>-->
+        <!--<property name="velocityProperties">-->
+            <!--<props>-->
+                <!--<prop key="input.encoding">UTF-8</prop>-->
+                <!--<prop key="output.encoding">UTF-8</prop>-->
+                <!--&lt;!&ndash;<prop key="velocimacro.library">macro.vm</prop>&ndash;&gt;-->
+                <!--&lt;!&ndash;<prop key="velocimacro.library.autoreload">true</prop>&ndash;&gt;-->
+            <!--</props>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <!--&lt;!&ndash; 异常错误页面 &ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+    <!--<property name="defaultErrorView" value="errors/500"/>-->
+    <!--<property name="exceptionAttribute" value="ex"/>-->
+    <!--</bean>-->
+
+
+
+    <!--&lt;!&ndash;配置静态资源的映射&ndash;&gt;-->
+    <!--<mvc:resources mapping="/css/**" location="/resources/css/"/>-->
+    <!--<mvc:resources mapping="/font/**" location="/resources/fonts/"/>-->
+    <!--<mvc:resources mapping="/js/**" location="/resources/js/"/>-->
+
+    <!--&lt;!&ndash;静态资源转发到servlet容器默认的servlet&ndash;&gt;-->
+    <!--<mvc:default-servlet-handler/>-->
+</beans>
