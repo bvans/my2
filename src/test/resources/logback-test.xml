@@ -35,22 +35,11 @@
     <logger name="com.alibaba.dubbo.registry.zookeeper" level="error" addtivity="false">
         <appender-ref ref="stdout"/>
     </logger>
-    <logger name="qunar.io.CachedRemoteFile" level="f" addtivity="false">
-        <appender-ref ref="non"/>
-    </logger>
-
-    <logger name="com.qunar.dubbo" level="error" addtivity="false">
-        <appender-ref ref="stdout"/>
-    </logger>
 
     <logger name="me.henuer.my2" level="DEBUG" additivity="false">
         <appender-ref ref="stdout"/>
     </logger>
 
-    <!--打印出sql语句见debug输出的内容； name：对应sql mapper文件的namespace的接口所在的包-->
-    <logger name="com.qunar.flight.finance.car.insurance.dao" level="DEBUG" additivity="false">
-        <appender-ref ref="stdout"/>
-    </logger>
 
     <root level="warn">
         <appender-ref ref="stdout"/>

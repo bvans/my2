@@ -76,7 +76,7 @@
         </filter>
     </appender>
 
-    <logger name="com.qunar.db.me.henuer.my2.util.DbLogger" level="info"
+    <logger name="me.henuer.my2.dao" level="info"
             additivity="false">
         <appender-ref ref="db"/>
         <appender-ref ref="WARN"/>
