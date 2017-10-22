@@ -28,7 +28,6 @@ public class SimpleInterceptor implements HandlerInterceptor {
             ipAddress = request.getRemoteAddr();
         }
         logger.info("request ip:{}", ipAddress);
-
         return true;
     }
 

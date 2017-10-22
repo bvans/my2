@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--配置要注入的类所在的包-->
     <context:component-scan base-package="me.henuer.my2.web"/>
-
+    <mvc:annotation-driven/>
     <!--配置自定义的拦截器-->
     <mvc:interceptors>
         <mvc:interceptor>
@@ -15,48 +15,44 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-
     <!--jsp-->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/jsp/"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
-        <property name="order" value="1" />
     </bean>
 
-    <!--&lt;!&ndash;velocity&ndash;&gt;-->
-    <!--<bean class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">-->
-        <!--<property name="prefix" value=""/>-->
-        <!--<property name="suffix" value=".vm"/>-->
-        <!--<property name="order" value="1" />-->
-        <!--<property name="cache" value="true"/>-->
-        <!--<property name="contentType" value="text/html;charset=utf-8"/>-->
-        <!--<property name="layoutUrl" value="layout/layout.vm"/>-->
-        <!--&lt;!&ndash;<property name="exposeSpringMacroHelpers" value="true"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="exposeRequestAttributes" value="true"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="requestContextAttribute" value="rc"/>&ndash;&gt;-->
-        <!--&lt;!&ndash;<property name="toolboxConfigLocation" value="/WEB-INF/conf/toolbox.xml"/>&ndash;&gt;-->
-    <!--</bean>-->
-    <!--&lt;!&ndash;velocity环境配置&ndash;&gt;-->
-    <!--<bean class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">-->
-        <!--<property name="resourceLoaderPath" value="/WEB-INF/vm/"/>-->
-        <!--<property name="velocityProperties">-->
-            <!--<props>-->
-                <!--<prop key="input.encoding">UTF-8</prop>-->
-                <!--<prop key="output.encoding">UTF-8</prop>-->
-                <!--&lt;!&ndash;<prop key="velocimacro.library">macro.vm</prop>&ndash;&gt;-->
-                <!--&lt;!&ndash;<prop key="velocimacro.library.autoreload">true</prop>&ndash;&gt;-->
-            <!--</props>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <!--  all resources inside folder src/main/webapp/resources are mapped so they can be refered to inside JSP files
+            (see htmlHeader.jsp for more details) -->
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/images/**" location="/resources/"/>
+
+    <!--<mvc:view-controller path="/" view-name="redirect:/index.html"/>-->
+
+    <!-- serve static resources (*.html, ...) from src/main/webapp/
+    Required when both servlet-mapping is '/' and static resources need to be served -->
+    <mvc:default-servlet-handler/>
 
 
-    <!--&lt;!&ndash; 异常错误页面 &ndash;&gt;-->
-    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
-    <!--<property name="defaultErrorView" value="errors/500"/>-->
-    <!--<property name="exceptionAttribute" value="ex"/>-->
-    <!--</bean>-->
+    <!--
+        - This bean resolves specific types of exceptions to corresponding logical
+        - view names for error views.
+    -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!-- view name resolved using bean of type InternalResourceViewResolver (declared in mvc-view-config.xml) -->
+        <property name="defaultErrorView" value="exception"/>
+        <!-- results into 'WEB-INF/jsp/exception.jsp' -->
+        <property name="warnLogCategory" value="warn"/>
+        <!-- needed otherwise exceptions won't be logged anywhere -->
+    </bean>
 
+
+    <!-- 异常错误页面 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="defaultErrorView" value="index.jsp"/>
+        <property name="exceptionAttribute" value="index.jsp"/>
+    </bean>
 
 
     <!--&lt;!&ndash;配置静态资源的映射&ndash;&gt;-->

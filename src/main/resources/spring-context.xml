@@ -6,28 +6,11 @@
 
     <context:property-placeholder location="classpath*:/jdbc.properties" ignore-unresolvable="true"/>
     <!--要注入的类所在的包-->
-    <context:component-scan base-package="me.henuer.my2.dao, me.henuer.my2.service"/>
+    <context:component-scan base-package="me.henuer.my2.service"/>
 
-    <!--数据源的配置-->
-    <import resource="classpath*:dataSource.xml"/>
-
-    <!--mybatis-->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath:mapper/SerialNumMapper.xml"/>
-    </bean>
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="me.henuer.my2.dao"/>
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-    </bean>
-    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
-        <constructor-arg index="0" ref="sqlSessionFactory"/>
-    </bean>
+    <!--&lt;!&ndash;数据源的配置&ndash;&gt;-->
+    <!--<import resource="classpath*:dataSource.xml"/>-->
 
 
-    <!--开启事务管理-->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-          p:dataSource-ref="dataSource"/>
 
 </beans>

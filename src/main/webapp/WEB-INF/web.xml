@@ -6,7 +6,7 @@
          version="3.0"
          metadata-complete="true">
 
-    <display-name>叫你玩儿梦幻西游2</display-name>
+    <display-name>my2</display-name>
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -47,7 +47,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatch</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 </web-app>

@@ -475,7 +475,6 @@
             <artifactId>jul-to-slf4j</artifactId>
             <scope>runtime</scope>
         </dependency>
-
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -506,6 +505,14 @@
 
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
@@ -524,14 +531,6 @@
                     </webApp>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
@@ -542,14 +541,6 @@
                 <deploy.snType>local</deploy.snType>
             </properties>
         </profile>
-
-        <profile>
-            <id>dev</id>
-            <properties>
-                <deploy.snType>dev</deploy.snType>
-            </properties>
-        </profile>
-
         <profile>
             <id>beta</id>
             <properties>
